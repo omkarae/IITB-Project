@@ -24,13 +24,6 @@ app.route("/form").get((req,res)=>{
     res.redirect("/list");
 })
 app.get("/list",async (req,res)=>{
-    // await volunteerList.find({},(err,foundList)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }else{
-    //         res.render("list",{list:foundList});
-    //     }
-    // })
     let list = await volunteerList.find({});
     if (list!=null) res.render("list",{list:list});
     res.render("list");
